@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.workout-days {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.day-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: visible;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    z-index: 2;
+}
+
+.day-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.exercise-list {
+    padding: 0;
+    position: relative;
+}
+
+.exercise-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.exercise-item:last-child {
+    border-bottom: none;
+}
+
+.exercise-name {
+    font-weight: bold;
+    color: var(--secondary-color);
+    cursor: pointer;
+    display: block;
+}
+
+.exercise-name:hover {
+    color: var(--primary-color);
+}
+
+.exercise-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #666;
+}
+
+.image-popup {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: none;
+    overflow: hidden;
+    left: 105%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+/* Dynamic positioning based on viewport */
+.image-popup {
+    left: 105%;
+    right: auto;
+}
+
+.day-card:nth-child(odd) .exercise-item:hover .image-popup {
+    left: auto;
+    right: 105%;
+    transform: translateY(-50%);
+}
+
+@media (min-width: 769px) {
+    .day-card:hover .exercise-item:hover .image-popup {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+    }
+    
+    .day-card:nth-child(odd):hover .exercise-item:hover .image-popup {
+        left: auto;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+}
+
+.image-popup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exercise-item:hover .image-popup {
+    display: block;
+}
+
+.exercise-type {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    color: white;
+}
+
+.type-push {
+    background-color: #e74c3c;
+}
+
+.type-pull {
+    background-color: #3498db;
+}
+
+.type-legs {
+    background-color: #2ecc71;
+}
+
+.type-rest {
+    background-color: #95a5a6;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .workout-days {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-popup {
+        left: 50%;
+        top: auto;
+        bottom: -220px;
+        transform: translateX(-50%);
+    }
+    
+    .exercise-item:last-child .image-popup {
+        bottom: auto;
+        top: -220px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Remove flip behavior on mobile */
+    .day-card:hover .exercise-item:hover .image-popup {
+        left: 50%;
+        right: auto;
+    }
+}

@@ -48,7 +48,7 @@ const trainingProgram = [
         day: "Day 6 - Pull Focus",
         exercises: [
                     { name: "Chin-Up", type: "pull", sets: 3, reps: "8 - 12", image: "Images/Chin-Up.jpg" },
-                    { name: "Dumbbell Row", type: "pull", sets: 3, reps: "8 - 12", image: "Images/Dumbbell Row.png" },
+                    { name: "Dumbbell Row", type: "pull", sets: 3, reps: "8 - 12", image: "Images/Dumbbell row.png" },
                     { name: "Pull-Up", type: "pull", sets: 3, reps: "8 - 12", image: "Images/Pull-Up.png" },
                     { name: "Dumbbell Curl", type: "pull", sets: 3, reps: "8 - 12", image: "Images/Dumbbell Curl.png" }
         ]

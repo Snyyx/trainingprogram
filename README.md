@@ -1,2 +1,2 @@
-# tutorial-website
-Youtube tutorial website
+# My Training Program
+This is a training program for calisthenics.
